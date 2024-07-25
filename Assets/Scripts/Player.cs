@@ -4,20 +4,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Weapon _weapons;
-    [SerializeField] PlayerMovement _playerMovement;
-    [SerializeField] PlayerInput _playerInput;
-    [SerializeField] PlayerAudio _playerAudio;
+    PlayerMovement _playerMovement;
+    PlayerInput _playerInput;
+    PlayerAudio _playerAudio;
 
     private void Start()
     {
-        _playerAudio = GetComponent<PlayerAudio>();
-        _playerInput = GetComponent<PlayerInput>();
-        _playerMovement = GetComponent<PlayerMovement>();
+        PlayerMovement playerMovement = new PlayerMovement();
+        PlayerInput playerInput = new PlayerInput();
+        PlayerAudio playerAudio = new PlayerAudio();
     }
 }
 public class PlayerAudio : MonoBehaviour
 {
-    
+
 }
 
 public class PlayerInput : MonoBehaviour
