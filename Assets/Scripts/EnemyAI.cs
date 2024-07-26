@@ -2,17 +2,88 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+interface IEnemy
+{
+    public void Move();
+    public void Attack();
+    public void TakeDamaged();
+}
 public class EnemyAI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        StandartZombie standartZombie = new StandartZombie();
+        FastZombie fastZombie = new FastZombie();
+        TankZombie tankZombie = new TankZombie();
+        BossZombie bossZombie = new BossZombie();
+    }
+}
+
+public class StandartZombie : EnemyAI, IEnemy
+{
+    public void Attack()
+    {
+        throw new System.NotImplementedException();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Move()
     {
-        
+        throw new System.NotImplementedException();
+    }
+
+    public void TakeDamaged()
+    {
+        throw new System.NotImplementedException();
+    }
+}
+public class FastZombie : EnemyAI, IEnemy
+{
+    public void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Move()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void TakeDamaged()
+    {
+        throw new System.NotImplementedException();
+    }
+}
+public class TankZombie : EnemyAI, IEnemy
+{
+    public void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Move()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void TakeDamaged()
+    {
+        throw new System.NotImplementedException();
+    }
+}
+public class BossZombie : EnemyAI, IEnemy
+{
+    public void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Move()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void TakeDamaged()
+    {
+        throw new System.NotImplementedException();
     }
 }
