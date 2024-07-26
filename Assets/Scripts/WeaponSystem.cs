@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public interface IWeapons
 {
@@ -10,7 +8,7 @@ public interface IWeapons
 
 
 
-public class WeaponSystem : MonoBehaviour, IWeapons
+public class WeaponSystem : MonoBehaviour
 {
     private void Start()
     {
@@ -19,37 +17,71 @@ public class WeaponSystem : MonoBehaviour, IWeapons
         IWeapons shotgun = new Shotgun();
         IWeapons grenades = new Grenades();
         IWeapons knife = new Knife();
-        
+
     }
-    public void Fire();
-    public void Reload();
-
-
-
-
 }
 
-class Pistol: WeaponSystem
+class Pistol : WeaponSystem, IWeapons
 {
+    public void Fire()
+    {
+        throw new System.NotImplementedException();
+    }
 
+    public void Reload()
+    {
+        throw new System.NotImplementedException();
+    }
 }
-class Uzi : WeaponSystem 
+class Uzi : WeaponSystem, IWeapons
 {
-    
+    public void Fire()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Reload()
+    {
+        throw new System.NotImplementedException();
+    }
 }
-class Shotgun : WeaponSystem
+class Shotgun : WeaponSystem, IWeapons
 {
+    public void Fire()
+    {
+        throw new System.NotImplementedException();
+    }
 
+    public void Reload()
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
-class Grenades : WeaponSystem
+class Grenades : WeaponSystem, IWeapons
 {
+    public void Fire()
+    {
+        throw new System.NotImplementedException();
+    }
 
+    public void Reload()
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
-class Knife : WeaponSystem
+class Knife : WeaponSystem, IWeapons
 {
+    public void Fire()
+    {
+        throw new System.NotImplementedException();
+    }
 
+    public void Reload()
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 
