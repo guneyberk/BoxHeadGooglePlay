@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerAudio), typeof(PlayerInput), typeof(PlayerMovement))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] Weapon _weapons;
+    [SerializeField] WeaponScriptableObj _weapons;
     PlayerMovement _playerMovement;
     PlayerInput _playerInput;
     PlayerAudio _playerAudio;

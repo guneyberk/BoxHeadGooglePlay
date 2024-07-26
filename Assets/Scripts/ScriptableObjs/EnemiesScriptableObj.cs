@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="Enemies",menuName ="Enemies")]
-public class Enemies : ScriptableObject 
+public class EnemiesScriptableObj : ScriptableObject 
 {
     [SerializeField] string _name;
     [SerializeField] float _healthPoints; 
