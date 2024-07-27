@@ -14,18 +14,24 @@ public class Player : MonoBehaviour
         PlayerInput playerInput = new PlayerInput();
         PlayerAudio playerAudio = new PlayerAudio();
     }
+
+
+    public void TakeDamage()
+    {
+
+    }
 }
-public class PlayerAudio : MonoBehaviour
+public class PlayerAudio : Player
 {
 
 }
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : Player
 {
 
 }
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Player
 {
 
 }

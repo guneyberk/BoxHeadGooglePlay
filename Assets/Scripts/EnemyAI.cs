@@ -6,7 +6,7 @@ interface IEnemy
 {
     public void Move();
     public void Attack();
-    public void TakeDamaged();
+    public void TakeDamage();
 }
 public class EnemyAI : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class StandartZombie : EnemyAI, IEnemy
         throw new System.NotImplementedException();
     }
 
-    public void TakeDamaged()
+    public void TakeDamage()
     {
         throw new System.NotImplementedException();
     }
@@ -48,7 +48,7 @@ public class FastZombie : EnemyAI, IEnemy
         throw new System.NotImplementedException();
     }
 
-    public void TakeDamaged()
+    public void TakeDamage()
     {
         throw new System.NotImplementedException();
     }
@@ -65,7 +65,7 @@ public class TankZombie : EnemyAI, IEnemy
         throw new System.NotImplementedException();
     }
 
-    public void TakeDamaged()
+    public void TakeDamage()
     {
         throw new System.NotImplementedException();
     }
@@ -82,7 +82,7 @@ public class BossZombie : EnemyAI, IEnemy
         throw new System.NotImplementedException();
     }
 
-    public void TakeDamaged()
+    public void TakeDamage()
     {
         throw new System.NotImplementedException();
     }
