@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        PlayerMovement playerMovement = new PlayerMovement();
+        PlayerMovement          playerMovement = new PlayerMovement();
         PlayerInput playerInput = new PlayerInput();
         PlayerAudio playerAudio = new PlayerAudio();
     }
