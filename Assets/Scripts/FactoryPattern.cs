@@ -1,25 +1,17 @@
 using UnityEngine;
 
-public interface IProduct
-{
-    public string ProductName { get; set; }
 
-    public void Initialize();
-}
-public abstract class Factory:MonoBehaviour
+public abstract class EnemyFactory : MonoBehaviour
 {
-    public abstract IProduct GetProduct(Vector3 position);
+    public abstract IEnemy CreateEnemy(Vector3 position);
 }
 
-
-
-
-public class StandartZombieFactory : Factory
+public class StandartZombieFactory : EnemyFactory
 {
     [SerializeField] private StandartZombie standartZombiePrefab;
-    public override IProduct GetProduct(Vector3 position)
+    public override IEnemy CreateEnemy(Vector3 position)
     {
-        GameObject instance = Instantiate(standartZombiePrefab.gameObject, position,Quaternion.identity);
+        GameObject instance = Instantiate(standartZombiePrefab.gameObject, position, Quaternion.identity);
 
         StandartZombie newStandartZombie = instance.GetComponent<StandartZombie>();
 
