@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public interface IEnemy
@@ -19,12 +17,20 @@ public class EnemyAI : MonoBehaviour
     }
 }
 
-public class StandartZombie : EnemyAI, IEnemy
+public class StandartZombie : MonoBehaviour, IProduct,IEnemy
 {
+    [SerializeField] string productName = "StandartZombie";
+    public string ProductName { get => productName; set => productName = value; }
+
+    public void Initialize()
+    {
+        gameObject.name = productName;
+    }
     public void Attack()
     {
         throw new System.NotImplementedException();
     }
+
 
     public void Move()
     {

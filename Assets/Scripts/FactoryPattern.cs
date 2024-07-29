@@ -1,30 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public interface IProduct
 {
     public string ProductName { get; set; }
+
     public void Initialize();
 }
-
-public abstract class Factory : MonoBehaviour
+public abstract class Factory:MonoBehaviour
 {
     public abstract IProduct GetProduct(Vector3 position);
 }
 
 
 
-public class ConcreateFactoryA: Factory
-{
-    [SerializeField] private StandartZombie productPrefab;
 
+public class StandartZombieFactory : Factory
+{
+    [SerializeField] private StandartZombie standartZombiePrefab;
     public override IProduct GetProduct(Vector3 position)
     {
-        GameObject instance = Instantiate(productPrefab.gameObject,position,Quaternion.identity);
-        StandartZombie newProduct = instance.GetComponent<StandartZombie>();
+        GameObject instance = Instantiate(standartZombiePrefab.gameObject, position,Quaternion.identity);
 
-        newProduct.Initialize();
-        return newProduct;
+        StandartZombie newStandartZombie = instance.GetComponent<StandartZombie>();
+
+        newStandartZombie.Initialize();
+        return newStandartZombie;
     }
 }
+
