@@ -2,6 +2,9 @@ using UnityEngine;
 
 public interface IEnemy
 {
+    public string ProductName { get; set; }
+
+    public void Initialize();
     public void Move();
     public void Attack();
     public void TakeDamage();
@@ -17,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     }
 }
 
-public class StandartZombie : MonoBehaviour, IProduct,IEnemy
+public class StandartZombie : MonoBehaviour,IEnemy
 {
     [SerializeField] string productName = "StandartZombie";
     public string ProductName { get => productName; set => productName = value; }
@@ -44,7 +47,14 @@ public class StandartZombie : MonoBehaviour, IProduct,IEnemy
 }
 public class FastZombie : EnemyAI, IEnemy
 {
+    public string ProductName { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
     public void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Initialize()
     {
         throw new System.NotImplementedException();
     }
@@ -61,7 +71,14 @@ public class FastZombie : EnemyAI, IEnemy
 }
 public class TankZombie : EnemyAI, IEnemy
 {
+    public string ProductName { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
     public void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Initialize()
     {
         throw new System.NotImplementedException();
     }
@@ -78,7 +95,14 @@ public class TankZombie : EnemyAI, IEnemy
 }
 public class BossZombie : EnemyAI, IEnemy
 {
+    public string ProductName { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
     public void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Initialize()
     {
         throw new System.NotImplementedException();
     }
