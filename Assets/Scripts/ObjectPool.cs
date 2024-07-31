@@ -30,9 +30,38 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public PooledObject GetPooledObject()
     {
-        
+        if(stack.Count == 0)
+        {
+            PooledObject newInstance = Instantiate(objectToPool);
+            newInstance.Pool= this;
+            return newInstance;
+        }
+
+        PooledObject nextInstance = stack.Pop();
+        nextInstance.gameObject.SetActive(true);
+        return nextInstance;
+
+       
+    }
+
+    public void ReturnToPool(PooledObject pooledObject)
+    {
+        stack.Push(pooledObject);
+        pooledObject.gameObject.SetActive(false);
+
+    }
+
+
+    public class PooledObject : MonoBehaviour
+    {
+        private ObjectPool pool;
+        public ObjectPool Pool { get { return pool;} set { pool = value;} }
+
+        public void Release()
+        {
+            pool.ReturnToPool(this);
+        }
     }
 }
