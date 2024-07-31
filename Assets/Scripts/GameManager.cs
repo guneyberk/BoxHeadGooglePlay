@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         stdZombie.Attack();
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         
