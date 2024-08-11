@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CommandInvoker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static Stack<ICommand> undoStack = new Stack<ICommand>();
+    public static void ExecuteCommand(ICommand command)
     {
-        
+        command.Execute();
+        undoStack.Push(command);
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void UndoCommand()
     {
-        
+        if (undoStack.Count > 0)
+        {
+            ICommand activeCommand = undoStack.Pop();
+            activeCommand.undo();
+        }
     }
 }
