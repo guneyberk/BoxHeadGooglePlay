@@ -1,16 +1,14 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerAudio), typeof(PlayerInput), typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerAudio), typeof(PlayerInput))]
 public class Player : MonoBehaviour
 {
     [SerializeField] WeaponScriptableObj _weapons;
-    PlayerMovement _playerMovement;
     PlayerInput _playerInput;
     PlayerAudio _playerAudio;
 
     private void Start()
     {
-        PlayerMovement playerMovement = new PlayerMovement();
         PlayerInput playerInput = new PlayerInput();
         PlayerAudio playerAudio = new PlayerAudio();
 
@@ -23,6 +21,8 @@ public class Player : MonoBehaviour
     {
 
     }
+
+
 }
 public class PlayerAudio : Player
 {
@@ -31,10 +31,17 @@ public class PlayerAudio : Player
 
 public class PlayerInput : Player
 {
+    public void Shoot()
+    {
+        Debug.Log("Player Shoot");
+    }
+
+    public void Move(Vector3 direction)
+    {
+        transform.position += direction;
+        Debug.Log("Player moved to" + transform.position);
+    }
+
 
 }
 
-public class PlayerMovement : Player
-{
-
-}
