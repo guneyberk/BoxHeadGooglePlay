@@ -39,6 +39,6 @@ public class ShootCommand : ICommand
 
     public void undo()
     {
-        Debug.Log("Undo Shoot");
+        Debug.Log("Undo ShootCmmd");
     }
 }

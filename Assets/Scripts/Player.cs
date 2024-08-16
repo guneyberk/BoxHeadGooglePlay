@@ -3,17 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerAudio), typeof(Player))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] WeaponScriptableObj _weapons;
-    Player _playerInput;
+    //[SerializeField] WeaponScriptableObj _weapons;
     PlayerAudio _playerAudio;
 
     private void Start()
     {
-        Player playerInput = new Player();
         PlayerAudio playerAudio = new PlayerAudio();
-
-
-
     }
 
 
