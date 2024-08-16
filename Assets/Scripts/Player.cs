@@ -1,15 +1,15 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerAudio), typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerAudio), typeof(Player))]
 public class Player : MonoBehaviour
 {
     [SerializeField] WeaponScriptableObj _weapons;
-    PlayerInput _playerInput;
+    Player _playerInput;
     PlayerAudio _playerAudio;
 
     private void Start()
     {
-        PlayerInput playerInput = new PlayerInput();
+        Player playerInput = new Player();
         PlayerAudio playerAudio = new PlayerAudio();
 
 
@@ -22,15 +22,6 @@ public class Player : MonoBehaviour
 
     }
 
-
-}
-public class PlayerAudio : Player
-{
-
-}
-
-public class PlayerInput : Player
-{
     public void Shoot()
     {
         Debug.Log("Player Shoot");
@@ -42,6 +33,9 @@ public class PlayerInput : Player
         Debug.Log("Player moved to" + transform.position);
     }
 
+}
+public class PlayerAudio : Player
+{
 
 }
 
