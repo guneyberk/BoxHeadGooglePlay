@@ -4,12 +4,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //[SerializeField] WeaponScriptableObj _weapons;
-    PlayerAudio _playerAudio;
-    PlayerController controller;
+    
 
     private void Start()
     {
-        
+        PlayerController _playerController = new PlayerController();
+        _playerController.Start();
     }
 
     public void Update()
@@ -32,16 +32,15 @@ public class Player : MonoBehaviour
     }
 
 }
-public class PlayerAudio : Player
-{
+public class PlayerAudio
 
 }
 
-public class PlayerController : Player
+public class PlayerController 
 {
     IState _currentState;
 
-    public void StartPlayerCon()
+    public void Start()
     {
         SetState(new IdleState(this));
     }
