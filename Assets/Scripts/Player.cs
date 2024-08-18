@@ -5,13 +5,16 @@ public class Player : MonoBehaviour
 {
     //[SerializeField] WeaponScriptableObj _weapons;
     PlayerAudio _playerAudio;
+    PlayerController controller;
 
     private void Start()
     {
-        PlayerAudio playerAudio = new PlayerAudio();
+        
     }
 
-
+    public void Update()
+    {
+    }
     public void TakeDamage()
     {
 
@@ -34,11 +37,11 @@ public class PlayerAudio : Player
 
 }
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Player
 {
     IState _currentState;
 
-    private void Start()
+    public void StartPlayerCon()
     {
         SetState(new IdleState(this));
     }
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         _currentState?.Update();
+
     }
 
     public void SetState(IState newState)
