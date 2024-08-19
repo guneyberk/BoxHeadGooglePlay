@@ -13,16 +13,16 @@ public class EnemyAI : MonoBehaviour
 {
     private void Start()
     {
-        StandartZombie standartZombie = new StandartZombie();
-        FastZombie fastZombie = new FastZombie();
-        TankZombie tankZombie = new TankZombie();
-        BossZombie bossZombie = new BossZombie();
+        //StandartZombie standartZombie = new StandartZombie();
+        //FastZombie fastZombie = new FastZombie();
+        //TankZombie tankZombie = new TankZombie();
+        //BossZombie bossZombie = new BossZombie();
     }
 }
 
-public class StandartZombie : MonoBehaviour,IEnemy
+public class StandartZombie : EnemyAI, IEnemy
 {
-    [SerializeField] string productName = "StandartZombie";
+    string productName = "StandartZombie";
     public string ProductName { get => productName; set => productName = value; }
 
     public void Initialize()
