@@ -32,7 +32,7 @@ public class StateMachine
         }
     }
 
-    public StateMachine(PlayerController player) 
+    public StateMachine(InputHandler player) 
     {
         this.walkState = new WalkState(player);
         this.idleState = new IdleState(player);

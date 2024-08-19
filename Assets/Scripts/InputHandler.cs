@@ -5,11 +5,13 @@ public class InputHandler : MonoBehaviour
 {
     private ICommand _moveCommand;
     private ICommand _shootCommand;
-    private PlayerController _controller;
+    private InputHandler _controller;
 
     Stack<ICommand> _commands = new Stack<ICommand>();
 
     [SerializeField] Player _player;
+
+
     private void Start()
     {
 
@@ -18,25 +20,32 @@ public class InputHandler : MonoBehaviour
         SetCommands(moveCommand, shootCommnad);
     }
 
-        public void SetCommands(ICommand moveCommand, ICommand shootCommand)
-        {
-            _controller = new PlayerController();
-            _moveCommand = moveCommand;
-            _shootCommand = shootCommand;
-        }
+    public void SetCommands(ICommand moveCommand, ICommand shootCommand)
+    {
 
-    private void Update()
+        _moveCommand = moveCommand;
+        _shootCommand = shootCommand;
+    }
+
+    
+
+    public void MoveMethod()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+
+            _moveCommand.Execute();
+            _commands.Push(_moveCommand);
+        }
+    }
+
+    public void ShootMethod()
     {
         if (Input.GetMouseButtonDown(0))
         {
             _shootCommand.Execute();
             _commands.Push(_shootCommand);
         }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            _controller.IsMoving();
-            _moveCommand.Execute();
-            _commands.Push(_moveCommand);
-        }
     }
 }
+

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,8 +10,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        PlayerController _playerController = new PlayerController();
-        _playerController.Start();
+        InputHandler _playerController = new InputHandler();
     }
 
     public void Update()
@@ -36,7 +36,3 @@ public class Player : MonoBehaviour
 public class PlayerAudio { }
 
 
-public class PlayerController
-{
-  
-}

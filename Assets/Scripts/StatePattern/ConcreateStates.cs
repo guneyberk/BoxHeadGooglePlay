@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class IdleState : IState
 {
-    public PlayerController Player { get; }
-    public IdleState(PlayerController player) 
+    public InputHandler Player { get; }
+    public IdleState(InputHandler player) 
     {
         Player = player;
     }
@@ -28,8 +28,8 @@ public class IdleState : IState
 
 public class WalkState : IState
 {
-    public PlayerController Player { get; }
-    public WalkState(PlayerController player)
+    public InputHandler Player { get; }
+    public WalkState(InputHandler player)
     {
         Player = player;
     }
@@ -37,7 +37,9 @@ public class WalkState : IState
 
     public void Enter()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Entering the walk state");
+
+        //Animations
     }
 
     public void Exit()
@@ -47,7 +49,7 @@ public class WalkState : IState
 
     public void Update()
     {
-        throw new System.NotImplementedException();
+       if(Player != null) { }
     }
 
    
