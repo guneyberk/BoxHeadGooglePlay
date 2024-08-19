@@ -1,18 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+[Serializable]
+public class StateMachine 
 {
-    // Start is called before the first frame update
-    void Start()
+   public IState CurrentState {  get; private set; }
+
+    public IdleState idleState;
+    public WalkState walkState;
+
+    public void Initialize(IState state)
     {
-        
+        CurrentState = state;
+        state.Enter();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TransitionTo(IState nextState) 
     {
-        
+        CurrentState.Exit();
+        CurrentState = nextState;
+        nextState.Enter();
+    }
+
+    public void Update ()
+    {
+        if(CurrentState != null)
+        {
+            CurrentState.Update();
+        }
+    }
+
+    public StateMachine(PlayerController player) 
+    {
+        this.walkState = new WalkState(player);
+        this.idleState = new IdleState(player);
     }
 }

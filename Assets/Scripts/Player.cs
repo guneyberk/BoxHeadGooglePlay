@@ -1,10 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerAudio), typeof(Player))]
 public class Player : MonoBehaviour
 {
     //[SerializeField] WeaponScriptableObj _weapons;
-    
+
 
     private void Start()
     {
@@ -32,37 +33,10 @@ public class Player : MonoBehaviour
     }
 
 }
-public class PlayerAudio
+public class PlayerAudio { }
 
-}
 
-public class PlayerController 
+public class PlayerController
 {
-    IState _currentState;
-
-    public void Start()
-    {
-        SetState(new IdleState(this));
-    }
-
-    private void Update()
-    {
-        _currentState?.Update();
-
-    }
-
-    public void SetState(IState newState)
-    {
-        _currentState?.Exit();
-
-        _currentState = newState;
-
-        _currentState?.Enter();
-    }
-
-
-    public bool IsMoving()
-    {
-        return Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
-    }
+  
 }

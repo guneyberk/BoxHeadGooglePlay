@@ -5,6 +5,7 @@ public class InputHandler : MonoBehaviour
 {
     private ICommand _moveCommand;
     private ICommand _shootCommand;
+    private PlayerController _controller;
 
     Stack<ICommand> _commands = new Stack<ICommand>();
 
@@ -14,13 +15,12 @@ public class InputHandler : MonoBehaviour
 
         ICommand moveCommand = new MoveCommand(_player, Vector3.forward);
         ICommand shootCommnad = new ShootCommand(_player);
-
         SetCommands(moveCommand, shootCommnad);
-
     }
 
         public void SetCommands(ICommand moveCommand, ICommand shootCommand)
         {
+            _controller = new PlayerController();
             _moveCommand = moveCommand;
             _shootCommand = shootCommand;
         }
@@ -34,6 +34,7 @@ public class InputHandler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
+            _controller.IsMoving();
             _moveCommand.Execute();
             _commands.Push(_moveCommand);
         }

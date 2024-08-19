@@ -1,61 +1,57 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IdleState : IState
 {
-    private PlayerController _controller;
-
-    public IdleState(PlayerController controller)
+    public PlayerController Player { get; }
+    public IdleState(PlayerController player) 
     {
-        this._controller = controller;
+        Player = player;
     }
+
 
     public void Enter()
     {
-        Debug.Log("Entering Idle State");
-    }
-
-    public void Update()
-    {
-        if (_controller.IsMoving())
-        {
-            _controller.SetState(new WalkState(_controller));
-        }
+        throw new System.NotImplementedException();
     }
 
     public void Exit()
     {
-        Debug.Log("Exiting Idle State");
+        throw new System.NotImplementedException();
+    }
+
+    public void Update()
+    {
+        throw new System.NotImplementedException();
     }
 }
 
-
-class WalkState : IState
+public class WalkState : IState
 {
-    PlayerController _controller;
+    public PlayerController Player { get; }
+    public WalkState(PlayerController player)
+    {
+        Player = player;
+    }
 
-    public WalkState(PlayerController controller)
-    { this._controller = controller; }
 
     public void Enter()
     {
-        Debug.Log("Entering Walk State");
-    }
-
-    public void Update()
-    {
-        if (!_controller.IsMoving())
-        {
-            _controller.SetState(new IdleState(_controller));
-        }
-
-
+        throw new System.NotImplementedException();
     }
 
     public void Exit()
     {
-        Debug.Log("Exiting the Moving state");
+        throw new System.NotImplementedException();
     }
 
+    public void Update()
+    {
+        throw new System.NotImplementedException();
+    }
 
+   
 }
+
+
 
